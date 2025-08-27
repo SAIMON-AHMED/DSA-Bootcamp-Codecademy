@@ -1,0 +1,20 @@
+// Insertion Sort - Ascending Order
+#include <bits/stdc++.h>
+using namespace std;
+
+void insertionSort(vector<int> &arr, int startIdx) {
+	int len = arr.size();
+	if (startIdx >= len) return;
+	
+	for (int j = startIdx; j > 0; j--) {
+		if (arr[j] > arr[j - 1]) swap(arr[j], arr[j -1]);
+		else break;
+	}
+	insertionSort(arr, startIdx + 1);
+}
+
+int main() {
+	vector<int> arr = {5, 1, 4, 2};
+	insertionSort(arr, 1);
+	for (int elem: arr) cout << elem << " ";
+}
