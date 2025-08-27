@@ -1,0 +1,36 @@
+/******************************
+
+
+E
+D E
+C D E
+B C D E
+A B C D E
+
+
+
+*****************************/
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	
+	cout << "Please enter a number between 1 and 26: ";
+	int n;
+	cin >> n;
+
+	
+	if (n <= 1 || n >= 26) {
+		cout << "Invalid Number";
+	}
+	
+	for (int i = 1; i <= n; i++) {
+		char maxChar = 65; // Unicode 65 = A
+		for (int j = i; j >= 1; j--) {
+			
+			cout << (char)(maxChar + n - j);
+		}
+		cout << endl;
+	}
+}
