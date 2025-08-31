@@ -44,34 +44,15 @@ int main() {
 	
 	// Hollow Rhombus
 	for (int i = 1; i <= n; i++) {
-		
-		/***********
+    // leading spaces
+    for (int s = 1; s <= n - i; s++) cout << ' ';
 
-			 ****   *  *
-			*  *
-		 *  *
-		*****  *
-
-		************/
-		int spaces = n - i;
-		// print first & last line
-		for (int j = 1; j <= spaces; j++) {
-			cout << " ";
-		}
-			
-			for (int j = 1; j<= n; j++) {
-				cout << "*";
-			}
-		} else if (i == n) {
-			for (int j = 1; j <= n; j++) {
-				cout << "*";
-			}
-		}
-		for (int j = 1; j <= 2 * n; j++) {
-			if (i + j == n + 1 || i + j == 2 * n) cout << "*";
-			else cout << " ";
-		}
-		cout << endl;
-	}
+    // hollow block of width n
+    for (int j = 1; j <= n; j++) {
+      if (i == 1 || i == n || j == 1 || j == n) cout << '*';
+      else cout << ' ';
+    }
+    cout << '\n';
+  }
 	
 }
