@@ -1,0 +1,31 @@
+// Calculate the Average of all Rows
+#include <bits/stdc++.h>
+using namespace std;
+
+void calc(vector<vector<int>>& arr) {
+	int rowLen = arr.size();
+	int colLen = arr[0].size();
+	for (int i = 0; i < rowLen; i++) {
+		double sum = 0;
+		double avg = 0;
+		for (int j = 0; j < colLen; j++) {
+			sum += arr[i][j];
+		}
+		avg = 1.0*(sum / rowLen);
+		cout << "Average: " << avg << endl;
+	}
+}
+
+int main() {
+	cout << "Please enter row and column length: ";
+	int R, C;
+	cin >> R >> C;
+	cout << "Please enter the arr: ";
+	vector<vector<int>> arr(R, vector<int>(C));
+	for (int i = 0; i < R; i++) {
+		for (int j = 0; j < C; j++) {
+			cin >> arr[i][j];
+		} 
+	}
+	calc(arr);
+}

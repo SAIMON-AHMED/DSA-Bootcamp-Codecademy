@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #include<iostream>
 using namespace std;
 
@@ -13,3 +14,20 @@ int main() {
         cout << endl;
     }
 }
+=======
+#include<iostream>
+using namespace std;
+
+int main() {
+
+    int x; // user's input
+    cin >> x;
+
+    for (int i = 0; i <= x; i++) {
+        for (int j = 0; j < i; j++) {
+            cout << "*";
+        }
+        cout << endl;
+    }
+}
+>>>>>>> f0ea474 (Adding assignments)

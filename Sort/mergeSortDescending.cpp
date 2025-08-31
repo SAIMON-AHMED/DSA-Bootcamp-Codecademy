@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // Merge Sort - Descending Order
 #include <bits/stdc++.h>
 using namespace std;
@@ -37,4 +38,45 @@ int main() {
 	vector<int> arr = {5, 1, 4, 2};
 	mergeSort(arr, 0, arr.size() - 1);
 	for (int elem: arr) cout << elem << ", ";
+=======
+// Merge Sort - Descending Order
+#include <bits/stdc++.h>
+using namespace std;
+
+void mergeTwoSortedArrays(vector<int> &arr, int start, int mid, int end) {
+	int i = start, j = mid + 1;
+	vector<int> tempArr;
+	
+	while(i <= mid || j <= end) {
+		if (i > mid) tempArr.push_back(arr[j++]);
+		else if (j > end) tempArr.push_back(arr[i++]);
+		else {
+			if (arr[i] > arr[j]) tempArr.push_back(arr[i++]);
+			else tempArr.push_back(arr[j++]);
+		}
+	}
+	// Copying elements to main array
+	int k = start;
+	for (int elem: tempArr) arr[k++] = elem;  
+}
+
+void mergeSort(vector<int> &arr, int start, int end) {
+	// Base Case
+	if (start >= end) return;
+	
+	int mid = (start + end) / 2;
+	
+	// Recursive Call
+	mergeSort(arr, start, mid);
+	mergeSort(arr, mid + 1, end);
+	
+	// Merge two sorted arrays
+	mergeTwoSortedArrays(arr, start, mid, end);
+}
+
+int main() {
+	vector<int> arr = {5, 1, 4, 2};
+	mergeSort(arr, 0, arr.size() - 1);
+	for (int elem: arr) cout << elem << ", ";
+>>>>>>> f0ea474 (Adding assignments)
 }

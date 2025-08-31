@@ -1,0 +1,21 @@
+// Palindrome Check - String
+#include <bits/stdc++.h>
+using namespace std;
+
+string palindromeChecker(string str) {
+	int start = 0;
+	int end = str.size() - 1;
+	while(start <= end) {
+		if (str[start] != str[end]) return "No";
+		start++;
+		end--;
+	}
+	return "Yes";
+}
+
+int main() {
+	string str;
+	getline(cin, str);
+	string res = palindromeChecker(str);
+	cout << res;
+}

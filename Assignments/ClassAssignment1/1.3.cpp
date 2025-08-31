@@ -1,0 +1,29 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+void matrixRowSum(const vector<vector<int>> &arr) {
+  for (int i = 0; i < (int)arr.size(); i++) {
+    int sum = 0;                        
+    for (int j = 0; j < (int)arr[i].size(); j++) {
+      sum += arr[i][j];
+    }
+    cout << "Sum of Row " << i << " is: " << sum << '\n';
+  }
+}
+
+int main() {
+
+  int R, C;
+  cin >> R >> C;
+
+  vector<vector<int>> arr(R, vector<int>(C));
+
+  for (int i = 0; i < R; i++) {
+    for (int j = 0; j < C; j++) {
+      cin >> arr[i][j];
+    }
+  }
+
+  matrixRowSum(arr);
+  return 0;
+}
