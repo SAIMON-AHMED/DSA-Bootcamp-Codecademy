@@ -13,7 +13,7 @@ void largestElement(vector<int> &arr) {
 
 int main() {
 	
-	int n;
+  int n;
   cin >> n;
 
   vector<int> arr(n);
