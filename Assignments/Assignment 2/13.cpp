@@ -1,46 +1,41 @@
+// https://leetcode.com/problems/spiral-matrix/
+// Traverse the boundary of the matrix
 class Solution {
 public:
     vector<int> spiralOrder(vector<vector<int>>& matrix) {
-
-        int sRow = 0, eRow = matrix.size()-1, sColumn = 0, eColumn = matrix[0].size()-1;
+        int sRow = 0, eRow = matrix.size() - 1, sCol = 0, eCol = matrix[0].size() - 1;
         vector<int> ans;
-
-        while(sRow <= eRow && sColumn <= eColumn)
-        {
+        while (sRow <= eRow && sCol <= eCol) {
             int i, j;
-            j = sColumn;
-            while(j <= eColumn)
-            {
+            j = sCol;
+            // horizontal boundary
+            while (j <= eCol) {
                 ans.push_back(matrix[sRow][j]);
-                ++j;
+                j++;
             }
-            i = sRow+1;
-            while(i <= eRow)
-            {
-                ans.push_back(matrix[i][eColumn]);
-                ++i;
+            // vertical boundary
+            i = sRow + 1;
+            while (i <= eRow) {
+                ans.push_back(matrix[i][eCol]);
+                i++;
             }
-            j = eColumn-1;
-            while(j >= sColumn && sRow != eRow)
-            {
+            // horizontal boundary
+            j = eCol - 1;
+            while(j >= sCol && sRow != eRow) {
                 ans.push_back(matrix[eRow][j]);
-                --j;
+                j--;
             }
-            i = eRow-1;
-            while(i > sRow && sColumn != eColumn)
-            {
-                ans.push_back(matrix[i][sColumn]);
-                --i;
+            // vertical boundary
+            i = eRow - 1;
+            while (i > sRow && sCol != eCol) {
+                ans.push_back(matrix[i][sCol]);
+                i--;
             }
             sRow++;
             eRow--;
-            sColumn++;
-            eColumn--;
-
+            sCol++;
+            eCol--;
         }
-
         return ans;
-
     }
-
 };
