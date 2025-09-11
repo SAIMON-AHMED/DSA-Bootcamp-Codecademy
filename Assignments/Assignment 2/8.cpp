@@ -1,25 +1,19 @@
-// Majority Elements
-#include <bits/stdc++.h>
-using namespace std;
-
-int majorityElement(vector<int>& nums) {
-  map<int, int> m;
-  for (int i = 0; i < nums.size(); i++) {
-    if (m.find(nums[i]) != m.end()) {
-      m[nums[i]]++;
-    } else {
-      m[nums[i]] = 1;
+class Solution {
+public:
+    int majorityElement(vector<int>& nums) {
+        int ans = nums[0];
+        int occurance = 1;
+        for (int n: nums) {
+            if (ans != n) {
+                occurance--;
+            } else {
+                occurance++;
+            }
+            if (occurance <= 0) {
+                ans = n;
+                occurance = 1;
+            }
+        }
+        return ans;
     }
-  }
-  for (auto &n: m) {
-    if (n.second > (nums.size() / 2)) 
-      return n.first;
-  }
-  return 0;
-}
-
-int main() {
-	vector<int> nums = {3, 2, 3};
-	int res = majorityElement(nums);
-	cout << "Majority Element: " << res; 
-}
+};

@@ -1,22 +1,14 @@
-// Missing Numbers
-#include <bits/stdc++.h>
-using namespace std;
+class Solution {
+public:
+    int missingNumber(vector<int>& nums) {
+        int n = nums.size();
+        int expectedSum = (n * (n + 1)) / 2; // sum formula
 
-int missingNumber(vector<int>& nums) {
-  sort(nums.begin(), nums.end());
-  int len = nums.size();
-  int ans = len;
-  for (int i = 0; i < len; i++) {
-    if (nums[i] != i) {
-      ans = i;
-      return ans;
+        int curSum = 0;
+        for (int elem: nums) {
+            curSum += elem;
+        }   
+
+        return expectedSum - curSum;
     }
-  }
-    return ans;
-}
-
-int main() {
-	vector<int> nums = {0, 1, 3};
-	int res = missingNumber(nums);
-	cout << "Missing Number is: " << res;
-}
+};
