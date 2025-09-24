@@ -1,31 +1,22 @@
-// https://leetcode.com/problems/longest-common-prefix/submissions/1781219698/
+// https://leetcode.com/problems/longest-common-prefix/
 class Solution {
 public:
     string longestCommonPrefix(vector<string>& strs) {
-        int minLen = INT_MAX;
-        for (string s : strs) {
-            if (s.size() < minLen) {
-                minLen = s.size();
-            }
-        }
-        string prefix = "";
-        bool flag;
+        int len = strs.size();
+        if (len == 1)
+        return strs[0];
+
+        sort(strs.begin(), strs.end());
+
+        int minLen = min(strs[0].size(), strs[len - 1].size());
+        string ans = "";
+
         for (int i = 0; i < minLen; i++) {
-            char c = strs[0][i];
-            for (int j = 0; j < strs.size(); j++) {
-                if (strs[j][i] == c) {
-                    flag = true;
-                } else {
-                    flag = false;
-                    break;
-                }
-            }
-            if (flag) {
-                prefix += c;
-            } else {
-                break;
-            }
+            if (strs[0][i] != strs[len - 1][i])
+            return ans;
+
+            ans += strs[0][i];
         }
-        return prefix;
+        return ans;
     }
 };
