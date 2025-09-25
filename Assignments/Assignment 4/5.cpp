@@ -1,0 +1,15 @@
+// https://leetcode.com/problems/rotate-string/
+class Solution {
+public:
+    bool rotateString(string s, string goal) {  
+        if (s.size() != goal.size())
+        return false;
+
+        s += s;
+
+        if (s.find(goal) != string::npos) // string::npos returns the last char
+        return true;
+
+        return false;
+    }
+};
